@@ -12,13 +12,13 @@ Currently, we call it lightweight because this is the first step toward an event
 Here is a sneak peek of some of the structures and initial results of the GeoFWI project.
 
 <p align="center">
-<img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-types' alt='comp' width=960/>
+<img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-seisinvnet.png' alt='comp' width=960/>
 </p>
 
 # Figure below shows a few good/bad predictions using the data-driven DL-based method (SeisInvNet) detailed in Li et al., 2020, Deep learning Inversion of Seismic Data, IEEE TGRS.
 
 <p align="center">
-<img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-seisinvnet.png' alt='comp' width=960/>
+<img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-types.png' alt='comp' width=960/>
 </p>
 
 -----------
