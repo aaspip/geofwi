@@ -45,7 +45,7 @@ Li et al., 2025, GeoFWI - upcoming, TBD.
 
 Li, S., Liu, B., Ren, Y., Chen, Y., Yang, S., Wang, Y. and Jiang, P., 2020. Deep-learning inversion of seismic data, IEEE Transactions on Geoscience and Remote Sensing, 58, 3, 2135-2149.
 
-Liu, B., Yang, S., Ren, Y., Xu, X., Jiang, P. and Chen, Y., 2021. Deep-learning seismic full-waveform inversion for realistic structural models. Geophysics, 86(1), pp.R31-R44.
+<!-- Liu, B., Yang, S., Ren, Y., Xu, X., Jiang, P. and Chen, Y., 2021. Deep-learning seismic full-waveform inversion for realistic structural models. Geophysics, 86(1), pp.R31-R44. -->
 
 Ren, Y., Nie, L., Yang, S., Jiang, P. and Chen, Y., 2021. Building complex seismic velocity models for deep learning inversion. IEEE Access, 9, pp.63767-63778.
 
@@ -63,6 +63,7 @@ BibTeX:
   	doi={10.1109/TGRS.2019.2953473},
 	}
 
+<!-- 
 	@Article{seisinvnet2,
   	author={Bin Liu and Senlin Yang and Yuxiao Ren and Xinji Xu and Peng Jiang and Yangkang Chen},
   	title = {Deep learning seismic full waveform inversion for realistic structure models},
@@ -74,6 +75,7 @@ BibTeX:
   	pages={R31-R44},
   	doi={10.1190/geo2019-0435.1},
 	}
+ -->
 
 	@Article{velocitymodel,
   	author={Yuxiao Ren and Lichao Nie and Senlin Yang and Peng Jiang and Yangkang Chen},
