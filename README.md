@@ -50,6 +50,7 @@ Liu, B., Yang, S., Ren, Y., Xu, X., Jiang, P. and Chen, Y., 2021. Deep-learning 
 Ren, Y., Nie, L., Yang, S., Jiang, P. and Chen, Y., 2021. Building complex seismic velocity models for deep learning inversion. IEEE Access, 9, pp.63767-63778.
 
 BibTeX:
+
 	@Article{seisinvnet,
   	author={Shucai Li and Bin Liu and Yuxiao Ren and Yangkang Chen and Senlin Yang and Yunhai Wang and Peng Jiang},
   	title = {Deep learning Inversion of Seismic Data},
