@@ -73,6 +73,24 @@ Figure below shows a few good/bad predictions using the data-driven DL-based met
 -----------
 ## Play with GeoFWI
 
+Read the GeoFWI data and check its dimension
+
+	import numpy as np
+	sizes=np.load("data/geofwi-size-layer-fault-salt-1-10.npy")
+	GeoFWI_path='data/geofwi.npy' #suppose you put geofwi.npy in "./data/" directory
+	geofwi=np.load(GeoFWI_path)
+	print('geofwi.shape',geofwi.shape)
+	print('NO of samples in GeoFWI is ',geofwi.shape[0])
+	print('Each sample has a dimension of %d * %d '%(geofwi.shape[1],geofwi.shape[2]))
+	
+The output will be like
+
+> geofwi.shape (49476, 100, 100)
+
+> NO of samples in GeoFWI is  49476
+
+> Each sample has a dimension of 100 * 100 
+
 Get some statistics from GeoFWI
 
 	import numpy as np
@@ -121,31 +139,95 @@ The output will be like
 > Three-layer folding model: 2649 samples
 
 > Three-layer fault model: 2473 samples
+
 > Three-layer salt model: 1758 samples
-Four-layer folding model: 2491 samples
-Four-layer fault model: 2161 samples
-Four-layer salt model: 1674 samples
-Five-layer folding model: 2245 samples
-Five-layer fault model: 1948 samples
-Five-layer salt model: 1508 samples
-Six-layer folding model: 1974 samples
-Six-layer fault model: 1653 samples
-Six-layer salt model: 1340 samples
-Seven-layer folding model: 1797 samples
-Seven-layer fault model: 1478 samples
-Seven-layer salt model: 1226 samples
-Eight-layer folding model: 1635 samples
-Eight-layer fault model: 1325 samples
-Eight-layer salt model: 1076 samples
-Nine-layer folding model: 1453 samples
-Nine-layer fault model: 1117 samples
-Nine-layer salt model: 976 samples
-Ten-layer folding model: 1309 samples
-Ten-layer fault model: 1000 samples
-Ten-layer salt model: 881 samples
-Eleven-layer folding model: 1200 samples
-Eleven-layer fault model: 829 samples
-Eleven-layer salt model: 832 samples
+
+> Four-layer folding model: 2491 samples
+
+> Four-layer fault model: 2161 samples
+
+> Four-layer salt model: 1674 samples
+
+> Five-layer folding model: 2245 samples
+
+> Five-layer fault model: 1948 samples
+
+> Five-layer salt model: 1508 samples
+
+> Six-layer folding model: 1974 samples
+
+> Six-layer fault model: 1653 samples
+
+> Six-layer salt model: 1340 samples
+
+> Seven-layer folding model: 1797 samples
+
+> Seven-layer fault model: 1478 samples
+
+> Seven-layer salt model: 1226 samples
+
+> Eight-layer folding model: 1635 samples
+
+> Eight-layer fault model: 1325 samples
+
+> Eight-layer salt model: 1076 samples
+
+> Nine-layer folding model: 1453 samples
+
+> Nine-layer fault model: 1117 samples
+
+> Nine-layer salt model: 976 samples
+
+> Ten-layer folding model: 1309 samples
+
+> Ten-layer fault model: 1000 samples
+
+> Ten-layer salt model: 881 samples
+
+> Eleven-layer folding model: 1200 samples
+
+> Eleven-layer fault model: 829 samples
+
+> Eleven-layer salt model: 832 samples
+
+
+Extract a few five-layer fault models from GeoFWI
+
+	import numpy as np
+	sizes=np.load("data/geofwi-size-layer-fault-salt-1-10.npy")
+	GeoFWI_path='data/geofwi.npy' #suppose you put geofwi.npy in "./data/" directory
+	geofwi=np.load(GeoFWI_path)
+	
+	#first index for five-layer fault models,
+	ind=sum(sizes[0:10])+1  #refer to last example for checking the index for each type of model
+	
+	no=8 #make it 4,8,16
+	import matplotlib.pyplot as plt
+	fig=plt.figure(figsize=(16, 8))
+	for ii in range(no):
+		plt.subplot(2,int(no/2),ii+1)
+		plt.imshow(geofwi[ind+ii,:,:],clim=[1500,4000]);
+	plt.colorbar(orientation='horizontal',cax=fig.add_axes([0.37,0.07,0.3,0.01]),shrink=1,label='Velocity (m/s)');
+	plt.show()
+	
+Extract a few five-layer salt models from GeoFWI
+
+	import numpy as np
+	sizes=np.load("data/geofwi-size-layer-fault-salt-1-10.npy")
+	GeoFWI_path='data/geofwi.npy' #suppose you put geofwi.npy in "./data/" directory
+	geofwi=np.load(GeoFWI_path)
+	
+	#first index for five-layer salt models,
+	ind=sum(sizes[0:11])+1  #refer to last example for checking the index for each type of model
+	
+	no=8 #make it 4,8,16
+	import matplotlib.pyplot as plt
+	fig=plt.figure(figsize=(16, 8))
+	for ii in range(no):
+		plt.subplot(2,int(no/2),ii+1)
+		plt.imshow(geofwi[ind+ii,:,:],clim=[1500,4000]);
+	plt.colorbar(orientation='horizontal',cax=fig.add_axes([0.37,0.07,0.3,0.01]),shrink=1,label='Velocity (m/s)');
+	plt.show()
 
 -----------
 ## Development
