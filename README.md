@@ -7,6 +7,55 @@
 Currently, we call it lightweight because this is the first step toward an eventually "heavyweight," very realistic, highly generalizable 3D velocity model dataset for unprecedented high-efficacy deep-learning-empowered FWI studies. 
 
 -----------
+## Download GeoFWI.npy from
+https://utexas.box.com/s/scbh25utyy5jz3mq7b0hp3wyluka7gaq
+
+## Reference
+Li et al., 2025, GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning - upcoming, TBD. 
+
+BibTeX:
+
+	@Article{geofwi,
+  	author={Chao Li and Liuqing Yang and Sergey Fomel and Andrey Bakulin and Yiran Shen and Shuang Gao and Umair Bin Waheed and Alexandros Savvaidis and Yangkang Chen},
+  	title = {GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning},
+  	journal={TBD},
+  	year=2025,
+  	volume=TBD,
+  	number=TBD,
+  	issue=TBD,
+  	pages={TBD},
+  	doi={TBD},
+	}
+
+-----------
+## Copyright
+    GEOFWI developing team, 2024-present
+
+-----------
+## License
+    MIT License 
+
+-----------
+## Install
+Using the latest version
+
+    git clone https://github.com/aaspip/geofwi
+    cd geofwi
+    pip install -v -e .
+
+or using Pypi
+
+    pip install geofwi
+
+or (recommended, because we update very fast)
+
+	pip install git+https://github.com/aaspip/geofwi
+
+-----------
+## Verified runnable OS
+Mac OS, Linux, Windows (need Microsoft C++ Build Tools)
+
+-----------
 ## Examples
 
 Here is a sneak peek of some of the structures and initial results of the GeoFWI project.
@@ -31,29 +80,6 @@ Figure below shows a few good/bad predictions using the data-driven DL-based met
     Regarding any questions, bugs, developments, collaborations, please contact  
     Yangkang Chen
     chenyk2016@gmail.com
-
------------
-## License
-    MIT License
     
------------
-## Download GeoFWI.npy from
-https://utexas.box.com/s/scbh25utyy5jz3mq7b0hp3wyluka7gaq
 
-## Reference
-Li et al., 2025, GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning - upcoming, TBD. 
-
-BibTeX:
-
-	@Article{geofwi,
-  	author={Chao Li and Liuqing Yang and Sergey Fomel and Andrey Bakulin and Yiran Shen and Shuang Gao and Umair Bin Waheed and Alexandros Savvaidis and Yangkang Chen},
-  	title = {GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning},
-  	journal={TBD},
-  	year=2025,
-  	volume=TBD,
-  	number=TBD,
-  	issue=TBD,
-  	pages={TBD},
-  	doi={TBD},
-	}
 
