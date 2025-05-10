@@ -83,7 +83,7 @@ Read the GeoFWI data and check its dimension
 	print('NO of samples in GeoFWI is ',geofwi.shape[0])
 	print('Each sample has a dimension of %d * %d '%(geofwi.shape[1],geofwi.shape[2]))
 	
-The output will be like
+*The output will be like*
 
 > geofwi.shape (49476, 100, 100)
 
@@ -128,7 +128,7 @@ Get some statistics from GeoFWI
 	print('Eleven-layer fault model: %d samples'%sizes[28])
 	print('Eleven-layer salt model: %d samples'%sizes[29])
 	
-The output will be like
+*The output will be like*
 
 > Two-layer folding model: 2826 samples 
 
@@ -209,7 +209,10 @@ Extract a few five-layer fault models from GeoFWI
 		plt.imshow(geofwi[ind+ii,:,:],clim=[1500,4000]);
 	plt.colorbar(orientation='horizontal',cax=fig.add_axes([0.37,0.07,0.3,0.01]),shrink=1,label='Velocity (m/s)');
 	plt.show()
-	
+
+*The output will be like*
+<img src='https://github.com/aaspip/gallery/blob/main/geofwi/hands-example-5layer-fault.png' alt='comp' width=960/>
+
 Extract a few five-layer salt models from GeoFWI
 
 	import numpy as np
@@ -228,6 +231,9 @@ Extract a few five-layer salt models from GeoFWI
 		plt.imshow(geofwi[ind+ii,:,:],clim=[1500,4000]);
 	plt.colorbar(orientation='horizontal',cax=fig.add_axes([0.37,0.07,0.3,0.01]),shrink=1,label='Velocity (m/s)');
 	plt.show()
+
+*The output will be like*
+<img src='https://github.com/aaspip/gallery/blob/main/geofwi/hands-example-5layer-salt.png' alt='comp' width=960/>
 
 -----------
 ## Development
