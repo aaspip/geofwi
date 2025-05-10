@@ -17,13 +17,13 @@ def plot_traces(st,axoff=1,ayoff=1,titleoff=1,picks=None,eid=None,mag=None,ifmap
 	showf: if show figure interatively
 	
 	EXAMPLES
-	from aefa import plot_traces
+	from geofwi import plot_traces
 	plot_traces(st);
 	
-	from aefa import plot_traces
+	from geofwi import plot_traces
 	plot_traces(st,axoff=0,ayoff=0,titleoff=0);
 	
-	from aefa plot_traces; 
+	from geofwi plot_traces; 
 	plot_traces(obspy.read("newwaveforms/texnet2022ugad.mseed")[0:10]);
 	
 	demos/test_event.py

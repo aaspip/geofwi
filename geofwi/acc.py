@@ -1,6 +1,6 @@
 # import os
 
-def acc_occurence(yesno,aefapath='./'):
+def acc_occurence(yesno,geofwipath='./'):
 	'''
 	acc_occurence: calculate occurence accuracy
 	
@@ -14,17 +14,17 @@ def acc_occurence(yesno,aefapath='./'):
 	locall=asciiread('locall_cyk_new.txt')
 	magall=asciiread('magall_cyk_new.txt')
 
-	from aefa import acc_occurence
+	from geofwi import acc_occurence
 	import os
-	aefapath=os.getenv('HOME')+"/DATALIB/AEFA.h5"
-	pre,rec,acc,f1=acc_occurence(yesnoall,aefapath)
+	geofwipath=os.getenv('HOME')+"/DATALIB/geofwi.h5"
+	pre,rec,acc,f1=acc_occurence(yesnoall,geofwipath)
 	
 	'''
 
 	#one way to get label
 # 	import h5py
 # 	aetalab=[]
-# 	f = h5py.File(aefapath, 'r')
+# 	f = h5py.File(geofwipath, 'r')
 # 	for WKNO in range(1,31,1): 
 # 		idx='WK_%02d'%(WKNO)
 # 		g=f.get(idx)
@@ -35,8 +35,8 @@ def acc_occurence(yesno,aefapath='./'):
 # 			aetalab.append(0)
 
 	#an easier way to get label
-	from aefa import get_testlabel
-	aetalab=get_testlabel(aefapath,mode='occurence')
+	from geofwi import get_testlabel
+	aetalab=get_testlabel(geofwipath,mode='occurence')
 	
 	print('aetalab size is',len(aetalab))
 	print('yesno size is',len(yesno))
@@ -56,7 +56,7 @@ def acc_occurence(yesno,aefapath='./'):
 	return precision,recall,accuracy,f1
 	
 	
-def acc_mag(mags,aefapath='./'):
+def acc_mag(mags,geofwipath='./'):
 	'''
 	acc_mag: calculate magnitude accuracy
 	
@@ -72,16 +72,16 @@ def acc_mag(mags,aefapath='./'):
 	magall=asciiread('magall_cyk_new.txt')
 	magall=[float(ii.split(" ")[0].split("]")[0].split("[")[-1]) for ii in magall] #choose the first one
 
-	from aefa import acc_mag
+	from geofwi import acc_mag
 	import os
-	aefapath=os.getenv('HOME')+"/DATALIB/AEFA.h5"
-	mae=acc_mag(magall,aefapath)
+	geofwipath=os.getenv('HOME')+"/DATALIB/geofwi.h5"
+	mae=acc_mag(magall,geofwipath)
 	
 	'''
 	import numpy as np
-	from aefa import get_testlabel
-	aetalab=get_testlabel(aefapath,mode='occurence')
-	aetalabmag=get_testlabel(aefapath,mode='magnitude')
+	from geofwi import get_testlabel
+	aetalab=get_testlabel(geofwipath,mode='occurence')
+	aetalabmag=get_testlabel(geofwipath,mode='magnitude')
 	
 	print('aetalab size is',len(aetalab))
 	
@@ -97,7 +97,7 @@ def acc_mag(mags,aefapath='./'):
 	return MAE
 	
 
-def acc_loc(locs,aefapath='./'):
+def acc_loc(locs,geofwipath='./'):
 	'''
 	acc_loc: calculate location accuracy
 	
@@ -115,17 +115,17 @@ def acc_loc(locs,aefapath='./'):
 	magall=asciiread('magall_cyk_new.txt')
 	magall=[float(ii.split(" ")[0].split("]")[0].split("[")[-1]) for ii in magall] #choose the first one
 
-	from aefa import acc_loc
+	from geofwi import acc_loc
 	import os
-	aefapath=os.getenv('HOME')+"/DATALIB/AEFA.h5"
-	mde=acc_loc(locall,aefapath)
+	geofwipath=os.getenv('HOME')+"/DATALIB/geofwi.h5"
+	mde=acc_loc(locall,geofwipath)
 	
 	'''
 	import numpy as np
-	from aefa import get_testlabel
-	aetalab=get_testlabel(aefapath,mode='occurence')
-	aetalabmag=get_testlabel(aefapath,mode='magnitude')
-	aetalabloc=get_testlabel(aefapath,mode='location')
+	from geofwi import get_testlabel
+	aetalab=get_testlabel(geofwipath,mode='occurence')
+	aetalabmag=get_testlabel(geofwipath,mode='magnitude')
+	aetalabloc=get_testlabel(geofwipath,mode='location')
 	
 	print('aetalab size is',len(aetalab))
 	
