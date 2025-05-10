@@ -112,9 +112,9 @@ Get some statistics from GeoFWI
 	
 The output will be like
 
-> Two-layer folding model: 2826 samples
-> Two-layer fault model: 2754 samples
-> Two-layer salt model: 1888 samples
+> Two-layer folding model: 2826 samples \\
+> Two-layer fault model: 2754 samples \\
+> Two-layer salt model: 1888 samples \\
 > Three-layer folding model: 2649 samples
 > Three-layer fault model: 2473 samples
 > Three-layer salt model: 1758 samples
