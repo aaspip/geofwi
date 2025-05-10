@@ -235,6 +235,24 @@ Extract a few five-layer salt models from GeoFWI
 *The output will be like*
 <img src='https://github.com/aaspip/gallery/blob/main/geofwi/hands-example-5layer-salt.png' alt='comp' width=960/>
 
+
+-----------
+## Benchmarking
+
+Here is a benchmarking test using different loss functions for the data-driven FWI (we use SeisInvNet, Li et al., 2020).
+
+<p align="center">
+<img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-ddfwi-loss.png' alt='comp' width=960/>
+</p>
+
+Here is a benchmarking test using different diffusion model scenarios.
+
+<p align="center">
+<img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-diffusion-model-three.png' alt='comp' width=960/>
+</p>
+
+
+
 -----------
 ## Development
     The development team welcomes voluntary contributions from any open-source enthusiast. 
