@@ -241,6 +241,20 @@ Extract a few five-layer salt models from GeoFWI
 <img src='https://github.com/aaspip/gallery/blob/main/geofwi/hands-example-5layer-salt.png' alt='comp' width=960/>
 
 
+Extract one velocity with a certain number of layers and a specific type of fold/fault/salt.
+
+	from geofwi import get_vel
+	lay=5;mod='salt';
+	vel=get_vel(layer=lay,mode=mod,datapath='./data',indx=0) #indx=0 means the first sample of this type
+	import matplotlib.pyplot as plt
+	plt.imshow(vel,cmap=plt.jet());plt.colorbar(label='Velocity (m/s)');
+	plt.xlabel('X sample');	plt.ylabel('Z sample');
+	plt.title("%d-layer %s model"%(lay,mod))
+	plt.show()
+	
+*The output will be like*
+<img src='https://github.com/aaspip/gallery/blob/main/geofwi/hands-example-5layer-salt-0.png' alt='comp' width=400/>
+
 -----------
 ## Benchmarking
 

@@ -1,4 +1,54 @@
 import numpy as np
+
+def get_vel(layer=5,mode='fault',datapath='./',indx=0):
+	'''
+	get_vel from GeoFWI dataset
+	
+	INPUT
+	layer: number of layers [2-11]
+	model: model type
+		  'fold'
+		  'fault'
+		  'salt'
+	datapath: GeoFWI.npy path (also the path of geofwi-size-layer-fault-salt-1-10.npy)
+	indx=: sample index in this type
+	
+	OUTPUT
+	vel:  velocity sample [100x100]
+	
+	EXAMPLE
+	from geofwi import get_vel
+	vel=get_vel(layer=5,mode='fault',datapath='./data',indx=0)
+	import matplotlib.pyplot as plt
+	plt.imshow(vel,cmap=plt.jet());plt.colorbar();
+	plt.show()
+	
+	from geofwi import get_vel
+	vel=get_vel(layer=5,mode='fault',datapath='./data',indx=-1) #turn into the last sample of the last type
+	import matplotlib.pyplot as plt
+	plt.imshow(vel,cmap=plt.jet());plt.colorbar();
+	plt.show()
+	
+	from geofwi import get_vel
+	vel=get_vel(layer=5,mode='salt',datapath='./data',indx=0) #first sample of this type
+	import matplotlib.pyplot as plt
+	plt.imshow(vel,cmap=plt.jet());plt.colorbar();
+	plt.show()
+	'''
+	
+	import numpy as np
+	sizes=np.load(datapath+"/geofwi-size-layer-fault-salt-1-10.npy")
+	
+	geofwi=np.load(datapath+"/geofwi.npy")
+
+	#first index for X-layer fold/fault/salt models
+	size_ind=int((layer-2)*3+{"fold":0, "fault":1, "salt":2}[mode])
+	ind=sum(sizes[0:size_ind])+0  #refer to first example for checking the index for each type of model
+	
+	vel=geofwi[ind+indx,:,:];
+	
+	return vel
+
 def shift3c(data,tshift):
 	'''
 	shift3c: shift a 3C numpy array according to the tshift (scalar)
