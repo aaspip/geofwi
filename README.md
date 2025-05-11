@@ -70,6 +70,11 @@ Figure below shows a few good/bad predictions using the data-driven DL-based met
 <img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-types.png' alt='comp' width=960/>
 </p>
 
+An example below shows a few shot gathers simulated from the velocity models on top.
+
+<p align="center">
+<img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-shots.png' alt='comp' width=960/>
+</p>
 -----------
 ## Play with GeoFWI
 
