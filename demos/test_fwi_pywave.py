@@ -13,7 +13,7 @@ plt.imshow(vel,cmap=plt.jet());plt.colorbar();
 plt.show()
 	
 ## obtain start velocity
-vel_s = smooth(vel,[4,10,1]);
+vel_s = smooth(vel,[3,8,1]);
 q=np.ones(vel.shape)*10000;
 plt.subplot(2,1,1);
 plt.imshow(vel, clim=[1.5,4.5]);
@@ -30,8 +30,8 @@ plt.plot(wavelet);plt.show()
 
 ## generate data
 mypar={'nz':100, 'nx':100, 'dz': 0.01, 'dx': 0.01, 'oz': 0, 'ox': 0, 'ns': 20, 'ds': 0.05,
-		'nt': 1501, 'dt': 0.001, 'ot': 0, 'nb':60, 'coef': 0.005, 'acqui_type': 1, 
-		'inv': 0, 'waterz': -30, 'onlysrc': True, 'onlyvel': 1, 'conv_error': 0.01, 'niter': 5}
+		'nt': 1501, 'dt': 0.001, 'ot': 0, 'nb':30, 'coef': 0.005, 'acqui_type': 1, 
+		'inv': 0, 'waterz': 0, 'onlysrc': True, 'onlyvel': 1, 'conv_error': 0.01, 'niter': 5}
 
 mypar['inv']=True;
 mypar['onlysrc']=True;
@@ -68,7 +68,7 @@ plt.imshow(data[:,:,19],aspect='auto',clim=(-0.5, 0.5),extent=[0,par['dx']*(par[
 plt.title("Shot 20"); plt.gca().set_yticks([]); plt.xlabel("Receiver (km)"); 
 
 plt.savefig(fname='test_fwi_pywave_data.png',format='png',dpi=300)
-plt.show()
+# plt.show()
 
 
 ## Visualize FWI results
