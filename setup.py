@@ -6,10 +6,21 @@
 # import os
 
 from setuptools import setup
-import numpy
+import numpy, os
+# from torch.utils.cpp_extension import (BuildExtension, CppExtension,
+#                                        CUDAExtension)
+# from torch import cuda
+
 long_description = """
 Source code: https://github.com/aaspip/geofwi""".strip() 
 
+# export CMAKE_CXX_COMPILER='gcc-mp-14'
+os.environ["CXX"] = "g++-mp-14"
+os.environ["CFLAGS"] = '-Wall -Wextra -pedantic -fPIC -Ofast -DDW_ACCURACY=2 -DDW_DTYPE=float'
+
+from distutils.core import Extension
+scalar_module = Extension('scalar', sources=['geofwi/deepwave/scalar.c'],
+                                                include_dirs=[numpy.get_include()])
 
 def read(*names, **kwargs):
     return io.open(
@@ -53,5 +64,6 @@ setup(
     ],
     extras_require={
         "docs": ["sphinx", "ipython", "runipy"]
-    }
+    },
+    ext_modules=[scalar_module]
 )
