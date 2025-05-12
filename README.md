@@ -10,6 +10,13 @@ Currently, we call it lightweight because this is the first step toward an event
 ## Download GeoFWI.npy from
 https://utexas.box.com/s/scbh25utyy5jz3mq7b0hp3wyluka7gaq
 
+## Download small shot-gather database for simple training tests (geofwi_train includes 50 samples for train, 10 samples for validation, 111 samples for completely independent test).
+https://utexas.box.com/s/6ak8omw3rlvatdnh51ngig1n94e02mss
+
+NOTE 1: The test set is not used in training the best SeisInvNet model, trained from 40000 samples, validated on 5000 samples, tested on 4476 samples. It is downloadable from https://utexas.box.com/s/t6rmre575qxb2x0yvdanst6pamzvsnxp
+
+NOTE 2: For larger-scale training, e.g., a scale of thousands or tens of thousands of velocity samples, we recommend generating the shot gathers by the users themselves. That's why we only focus on a "lightweight" velocity model dataset (not shot gathers) in the GeoFWI project.
+
 ## Reference
 Li et al., 2025, GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning - upcoming, TBD. 
 
@@ -75,6 +82,7 @@ An example below shows a few shot gathers simulated from the velocity models on 
 <p align="center">
 <img src='https://github.com/aaspip/gallery/blob/main/geofwi/geofwi-shots.png' alt='comp' width=960/>
 </p>
+
 -----------
 ## Play with GeoFWI
 
