@@ -7,8 +7,8 @@ from typing import Optional, Union, List, Tuple
 import torch
 from torch import Tensor
 from torch.autograd.function import once_differentiable
-import deepwave
-from deepwave.common import (setup_propagator, downsample_and_movedim,
+import geofwi.deepwave as deepwave
+from geofwi.deepwave.common import (setup_propagator, downsample_and_movedim,
                              create_or_pad)
 
 

@@ -60,7 +60,7 @@ setup(
         "seismology", "seismic imaging", "computational seismology", "AI for science"
     ],
     install_requires=[
-        "numpy", "scipy", "matplotlib"
+        "numpy", "scipy", "matplotlib", "torch"
     ],
     extras_require={
         "docs": ["sphinx", "ipython", "runipy"]
