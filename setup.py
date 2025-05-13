@@ -18,9 +18,9 @@ Source code: https://github.com/aaspip/geofwi""".strip()
 os.environ["CXX"] = "g++-mp-14"
 os.environ["CFLAGS"] = '-Wall -Wextra -pedantic -fPIC -Ofast -DDW_ACCURACY=2 -DDW_DTYPE=float'
 
-from distutils.core import Extension
-scalar_module = Extension('scalar', sources=['geofwi/deepwave/scalar.c'],
-                                                include_dirs=[numpy.get_include()])
+# from distutils.core import Extension
+# scalar_module = Extension('scalar', sources=['geofwi/deepwave/scalar.c'],
+#                                                 include_dirs=[numpy.get_include()])
 
 def read(*names, **kwargs):
     return io.open(
@@ -65,5 +65,5 @@ setup(
     extras_require={
         "docs": ["sphinx", "ipython", "runipy"]
     },
-    ext_modules=[scalar_module]
+    ext_modules=[]
 )
