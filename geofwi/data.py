@@ -145,11 +145,10 @@ class DatasetFolder(data.Dataset):
             
         transform = JointCompose([JointRandomFlip(self.flip), JointNormalize(self.norm)])
         observe, geology = transform([observe, geology])
-        observe=observe[:,::2,::2] 
+        observe=observe[:,::2,::2] #[30,100,2000]->[30,50,1000]， shot/receiver/time
         #print(geology.shape)
         #sys.exit()
         # geology size [100,100]
-        # observe size [20,32,1000]
 
         return observe, geology, observe_path, geology_path
 
