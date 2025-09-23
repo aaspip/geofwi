@@ -26,7 +26,7 @@ Li et al., 2025, GeoFWI: A lightweight velocity model dataset for benchmarking f
 BibTeX:
 
 	@Article{geofwi,
-  	author={Chao Li and Liuqing Yang and Sergey Fomel and Yiran Shen and Shuang Gao and Umair Bin Waheed and Alexandros Savvaidis and Yangkang Chen},
+  	author={Chao Li and Sergey Fomel and Yiran Shen and Umair Bin Waheed and Alexandros Savvaidis and Yangkang Chen},
   	title = {GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning},
   	journal={TBD},
   	year=2025,
