@@ -2,7 +2,7 @@
 
 ## Description
 
-**GeoFWI** is a lightweight velocity model dataset for deep-learning-based FWI benchmarking. This project is inspired by the OpenFWI project (https://sites.google.com/site/youzuolin044/openfwi) but includes more realistic geological models (e.g., folding layers, faults, and salt bodies). 
+**GeoFWI** is a large velocity model dataset for deep-learning-based FWI benchmarking. This project is inspired by the OpenFWI project (https://sites.google.com/site/youzuolin044/openfwi) but includes more realistic geological models (e.g., folding layers, faults, and salt bodies). 
 
 Currently, we call it lightweight because this is the first step toward an eventually "heavyweight," very realistic, highly generalizable 3D velocity model dataset for unprecedented high-efficacy deep-learning-empowered FWI studies. 
 
@@ -21,13 +21,13 @@ https://utexas.box.com/s/6ak8omw3rlvatdnh51ngig1n94e02mss
 NOTE 3: For larger-scale training, e.g., a scale of thousands or tens of thousands of velocity samples, we recommend generating the shot gathers by the users themselves. That's why we only focus on a "lightweight" velocity model dataset (not shot gathers) in the GeoFWI project.
 
 ## Reference
-Li et al., 2025, GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning - upcoming, TBD. 
+Li et al., 2025, GeoFWI: A large velocity model dataset for benchmarking full waveform inversion using deep learning - upcoming, TBD. 
 
 BibTeX:
 
 	@Article{geofwi,
-  	author={Chao Li and Sergey Fomel and Yiran Shen and Umair Bin Waheed and Alexandros Savvaidis and Yangkang Chen},
-  	title = {GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning},
+  	author={Chao Li and Yiran Shen and Sergey Fomel and Umair Bin Waheed and Alexandros Savvaidis and Yangkang Chen},
+  	title = {GeoFWI: A large velocity model dataset for benchmarking full waveform inversion using deep learning},
   	journal={TBD},
   	year=2025,
   	volume=TBD,
