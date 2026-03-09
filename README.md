@@ -21,20 +21,20 @@ https://utexas.box.com/s/6ak8omw3rlvatdnh51ngig1n94e02mss
 NOTE 3: For larger-scale training, e.g., a scale of thousands or tens of thousands of velocity samples, we recommend generating the shot gathers by the users themselves. That's why we only focus on a "lightweight" velocity model dataset (not shot gathers) in the GeoFWI project.
 
 ## Reference
-Li et al., 2025, GeoFWI: A large velocity model dataset for benchmarking full waveform inversion using deep learning - upcoming, TBD. 
+Li et al., 2026, GeoFWI: A large velocity model dataset for benchmarking full waveform inversion using deep learning, Journal of Geophysical Research: Machine Learning and Computation, 3(1), e2025JH001037.
 
 BibTeX:
 
 	@Article{geofwi,
   	author={Chao Li and Yiran Shen and Sergey Fomel and Umair Bin Waheed and Alexandros Savvaidis and Yangkang Chen},
   	title = {GeoFWI: A large velocity model dataset for benchmarking full waveform inversion using deep learning},
-  	journal={TBD},
-  	year=2025,
-  	volume=TBD,
-  	number=TBD,
-  	issue=TBD,
-  	pages={TBD},
-  	doi={TBD},
+  	journal={Journal of Geophysical Research: Machine Learning and Computation},
+  	year=2026,
+  	volume=3,
+  	number=1,
+  	issue=1,
+  	pages={e2025JH001037},
+  	doi={10.1029/2025JH001037},
 	}
 
 -----------
