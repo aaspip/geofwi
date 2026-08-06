@@ -49,6 +49,39 @@ def get_vel(layer=5,mode='fault',datapath='./',indx=0):
 	
 	return vel
 
+def get_vels(indx=[50000],datapath='./'):
+	'''
+	get_vels from GeoFWI dataset
+	
+	INPUT
+	indx: sample index in this type [a list]
+	datapath: GeoFWI.npy path (also the path of geofwi-size-layer-fault-salt-1-10.npy)
+
+	
+	OUTPUT
+	vels:  velocity sample [nv*100x100]
+	
+	EXAMPLE
+	from geofwi import get_vels, plot_four
+	vels=get_vels([49680,50388,51482,51729],datapath='./data')
+	plot_four(vels, title="Four Samples in Augmented GeoFWI", figname="SaltAug.png")
+
+	from geofwi import get_vels, plot_four
+	vels=get_vels([54895,55047,55390,57247],datapath='./data')
+	plot_four(vels, title="Four Samples in Augmented GeoFWI", figname="Salt2Aug.png")
+	'''
+	
+	import numpy as np
+	
+	geofwi=np.load(datapath+"/geofwi.npy")
+
+	vels=[]
+	for ii in indx:
+		vels.append(geofwi[ii,:,:])
+	
+	return np.array(vels)
+
+    
 def shift3c(data,tshift):
 	'''
 	shift3c: shift a 3C numpy array according to the tshift (scalar)
@@ -429,129 +462,3 @@ def get_testdata(week=1,station='EM_101',geofwipath='./'):
 	return data_em
 
 
-def get_testlabel(geofwipath='./',mode='occurence'):
-	'''
-	get_testlabel: get earthquake occurence label of geofwi for the testing data (30 weeks)
-	
-	
-	mode: occurence, magnitude, location
-	
-	EXAMPLE:
-	from geofwi import get_testlabel
-	import os
-	label=get_testlabel(os.getenv('HOME')+"/DATALIB/geofwi.h5")
-	labelmag=get_testlabel(os.getenv('HOME')+"/DATALIB/geofwi.h5",mode='magnitude')
-	labelloc=get_testlabel(os.getenv('HOME')+"/DATALIB/geofwi.h5",mode='location')
-	
-	'''
-	import os,h5py
-	
-	geofwipath=os.getenv('HOME')+'/DATALIB/geofwi.h5'
-
-	f = h5py.File(geofwipath, 'r')
-	keys=list(f.keys())
-	keys=[ii for ii in keys if ii[0:2]=='WK']
-
-	
-	labclass=[]
-	mags=[]
-	lons=[]
-	lats=[]
-	for ii in range(len(keys)):
-		idx=keys[ii]
-		keywords=list(f.get(idx).keys())
-# 		print(keywords[-1])
-		yesno=f.get(idx).get('Label_EV').attrs['yesno']
-		
-		if yesno=='yes':
-			labclass.append(1)
-			mags.append(f.get(idx).get('Label_EV').attrs['ev_magnitude'])
-			lons.append(f.get(idx).get('Label_EV').attrs['ev_longitude'])
-			lats.append(f.get(idx).get('Label_EV').attrs['ev_latitude'])
-		else:
-			labclass.append(0)
-			mags.append(0)
-			lons.append(0)
-			lats.append(0)
-
-	
-	if mode=='occurence':
-		return labclass
-	elif mode=='magnitude':
-		return mags
-	elif mode=='location':
-		return [(lons[ii],lats[ii]) for ii in range(len(lons))]
-	else:
-		return labclass
-	
-	
-def get_testlabelaeta(geofwipath='./',mode='occurence'):
-	'''
-	get_testlabelaeta: get earthquake occurence label of geofwi for the testing data (30 weeks)
-	
-	NOTE: The difference between get_testlabel and get_testlabelaeta is that the latter
-	removes the events that are far away from AETA stations. The AETA competition is
-	based on the labels from the latter (get_testlabelaeta). 
-	
-	For keep a record of all event information, we preserve both label functions.
-	
-	mode: occurence, magnitude, location
-	
-	EXAMPLE:
-	from geofwi import get_testlabelaeta
-	import os
-	label=get_testlabelaeta(os.getenv('HOME')+"/DATALIB/geofwi.h5")
-	labelmag=get_testlabelaeta(os.getenv('HOME')+"/DATALIB/geofwi.h5",mode='magnitude')
-	labelloc=get_testlabelaeta(os.getenv('HOME')+"/DATALIB/geofwi.h5",mode='location')
-	
-	'''
-	import os,h5py
-	
-	geofwipath=os.getenv('HOME')+'/DATALIB/geofwi.h5'
-
-	f = h5py.File(geofwipath, 'r')
-	keys=list(f.keys())
-	keys=[ii for ii in keys if ii[0:2]=='WK']
-
-	
-	labclass=[]
-	mags=[]
-	lons=[]
-	lats=[]
-	for ii in range(len(keys)):
-		idx=keys[ii]
-		keywords=list(f.get(idx).keys())
-# 		print(keywords[-1])
-		yesno=f.get(idx).get('Label_EV').attrs['yesno']
-		
-		if yesno=='yes':
-			labclass.append(1)
-			mags.append(f.get(idx).get('Label_EV').attrs['ev_magnitude'])
-			lons.append(f.get(idx).get('Label_EV').attrs['ev_longitude'])
-			lats.append(f.get(idx).get('Label_EV').attrs['ev_latitude'])
-		else:
-			labclass.append(0)
-			mags.append(0)
-			lons.append(0)
-			lats.append(0)
-
-	weeks=[17,18,20,23] 
-	#In these weeks, event from China's catalog is removed due to the remoteness from nearest AETA stations
-	for iweek in weeks:
-		labclass[iweek-1]=0
-		mags[iweek-1]=0
-		lons[iweek-1]=0
-		lats[iweek-1]=0
-	
-	if mode=='occurence':
-		return labclass
-	elif mode=='magnitude':
-		return mags
-	elif mode=='location':
-		return [(lons[ii],lats[ii]) for ii in range(len(lons))]
-	else:
-		return labclass
-		
-		
-
-	

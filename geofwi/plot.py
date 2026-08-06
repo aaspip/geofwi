@@ -1,6 +1,59 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+def plot_four(samples, title=None, cmap="seismic", figname=None, figsize=(14, 3.8)):
+    """
+    Plot four 2D samples in one row with a shared colorbar.
+
+    Parameters
+    ----------
+    samples : torch.Tensor or np.ndarray
+        Shape (4, H, W).
+    title : str, optional
+        Figure title.
+    cmap : str
+        Matplotlib colormap.
+    figsize : tuple
+        Figure size.
+    """
+    import torch
+
+    # Convert to numpy if necessary
+    if isinstance(samples, torch.Tensor):
+        samples = samples.detach().cpu().numpy()
+
+    assert samples.shape[0] == 4, "Input must have shape (4, H, W)."
+
+    vmin = samples.min()
+    vmax = samples.max()
+
+    fig, axes = plt.subplots(1, 4, figsize=figsize, constrained_layout=True)
+
+    for i, ax in enumerate(axes):
+        im = ax.imshow(
+            samples[i],
+            cmap=cmap,
+            vmin=vmin,
+            vmax=vmax,
+            origin="upper",
+            aspect="auto",
+        )
+        ax.set_xlabel("Horizontal grid index")
+        if i == 0:
+            ax.set_ylabel("Depth grid index")
+
+    # Shared colorbar
+    fig.colorbar(im, ax=axes, location="right", shrink=0.9, label="m/s")
+
+    if title is not None:
+        fig.suptitle(title, fontsize=14)
+
+    if figname is not None:
+        plt.savefig(figname, dpi=300, bbox_inches="tight")
+        
+    plt.show()
+
+
 def plot_traces(st,axoff=1,ayoff=1,titleoff=1,picks=None,eid=None,mag=None,ifmap=0,staloc=None,evloc=None,staname=None,ptime=None,stime=None,figname=None,showf=True,**kwargs):
 	"""
 	plot_traces: plot all traces in a stream quickly side-by-side from top to bottom
