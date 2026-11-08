@@ -31,7 +31,7 @@ def visualize(path=None, *, indices=None, n=9, seed=42, cmap='turbo',
         ax.set(title=f'Model #{index}', xlabel='Horizontal sample', ylabel='Depth sample')
     for ax in axes.flat[len(indices):]:
         ax.axis('off')
-    fig.colorbar(im, ax=axes.ravel().tolist(), shrink=0.8, label='Velocity (dataset units; check metadata)')
+    fig.colorbar(im, ax=axes.ravel().tolist(), shrink=0.8, label='Velocity (m/s)')
     if save:
         fig.savefig(save, dpi=180, bbox_inches='tight')
     if show:

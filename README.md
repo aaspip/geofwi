@@ -2,26 +2,10 @@
 
 ## Description
 
-**GeoFWI** is a large velocity model dataset for deep-learning-based FWI benchmarking. This project is inspired by the OpenFWI project (https://sites.google.com/site/youzuolin044/openfwi) but includes more realistic geological models (e.g., folding layers, faults, and salt bodies). 
-
-Currently, we call it lightweight because this is the first step toward an eventually "heavyweight," very realistic, highly generalizable 3D velocity model dataset for unprecedented high-efficacy deep-learning-empowered FWI studies. 
-
------------
-## Download GeoFWI.npy from
-https://utexas.box.com/s/scbh25utyy5jz3mq7b0hp3wyluka7gaq
-
-## Download small shot-gather database for simple training tests from
-https://utexas.box.com/s/t6rmre575qxb2x0yvdanst6pamzvsnxp
-
-NOTE 1: Please put the folders train/valid/test in the geofwi_train folder, which includes 50 samples for training, 10 samples for validation, and 111 samples for the completely independent test.
-
-NOTE 2: The test set is not used in training the best SeisInvNet model, trained from 40000 samples, validated on 5000 samples, and tested on 4476 samples. It is downloadable from 
-https://utexas.box.com/s/6ak8omw3rlvatdnh51ngig1n94e02mss
-
-NOTE 3: For larger-scale training, e.g., a scale of thousands or tens of thousands of velocity samples, we recommend generating the shot gathers by the users themselves. That's why we only focus on a "lightweight" velocity model dataset (not shot gathers) in the GeoFWI project.
+**GeoFWI** is a large 2D velocity model dataset for deep-learning-based FWI benchmarking. This project is inspired by the OpenFWI project (https://sites.google.com/site/youzuolin044/openfwi) but includes more realistic geological models (e.g., folding layers, faults, and salt bodies). 
 
 ## Reference
-Li et al., 2026, GeoFWI: A large velocity model dataset for benchmarking full waveform inversion using deep learning, Journal of Geophysical Research: Machine Learning and Computation, 3(1), e2025JH001037.
+	Li, C., Shen, Y., Fomel, S., Waheed, U.B., Savvaidis, A. and Chen, Y., 2026. GeoFWI: A large velocity model data set for benchmarking full waveform inversion using deep learning. Journal of Geophysical Research: Machine Learning and Computation, 3(2), p.e2025JH001037.
 
 BibTeX:
 
@@ -37,35 +21,6 @@ BibTeX:
   	doi={10.1029/2025JH001037},
 	}
 
------------
-## Copyright
-    GEOFWI developing team, 2024-present
-
------------
-## License
-    MIT License 
-
------------
-## Install
-Using the latest version
-
-    git clone https://github.com/aaspip/geofwi
-    cd geofwi
-    pip install -v -e .
-
-or using Pypi
-
-    pip install geofwi
-
-or (recommended, because we update very fast)
-
-	pip install git+https://github.com/aaspip/geofwi
-
------------
-## Verified runnable OS
-Mac OS, Linux, Windows (need Microsoft C++ Build Tools)
-
-
 ## 🚀 Quick Start: Automatic Download, Loading, and Visualization
 
 GeoFWI provides a simple Python interface for automatically downloading,
@@ -78,7 +33,10 @@ Install GeoFWI directly from GitHub:
 ```bash
 pip install git+https://github.com/aaspip/geofwi.git
 ```
+or using Pypi
 
+    pip install geofwi
+    
 Install the optional visualization and download-progress dependencies:
 
 ```bash
@@ -244,7 +202,7 @@ For dataset details, visit the
 
 
 -----------
-## Examples
+## More Examples
 
 Here is a sneak peek of some of the structures and initial results of the GeoFWI project.
 
@@ -526,6 +484,14 @@ The above two figures can be reproduced using
 	plot_four(vels, title="Four Samples in Augmented GeoFWI", figname="Salt2Aug.png")
 
 
+
+-----------
+## Copyright
+    GEOFWI developing team, 2024-present
+
+-----------
+## License
+    MIT License 
 
 
 
