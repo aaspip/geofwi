@@ -65,6 +65,184 @@ or (recommended, because we update very fast)
 ## Verified runnable OS
 Mac OS, Linux, Windows (need Microsoft C++ Build Tools)
 
+
+## 🚀 Quick Start: Automatic Download, Loading, and Visualization
+
+GeoFWI provides a simple Python interface for automatically downloading,
+loading, exploring, and visualizing the benchmark velocity models.
+
+### 1. Installation
+
+Install GeoFWI directly from GitHub:
+
+```bash
+pip install git+https://github.com/aaspip/geofwi.git
+```
+
+Install the optional visualization and download-progress dependencies:
+
+```bash
+pip install numpy matplotlib tqdm
+```
+
+### 2. Automatically Download the Dataset
+
+Download the GeoFWI dataset from the official
+[Zenodo repository](https://zenodo.org/records/24061019):
+
+```python
+import geofwi
+
+# Automatically download and extract the GeoFWI dataset
+path = geofwi.download(progress=True)
+
+print("GeoFWI dataset location:", path)
+```
+
+The downloader automatically:
+
+- Selects a local storage directory (`~/Datasets/GeoFWI` by default
+  on macOS/Linux).
+- Downloads the dataset from Zenodo with a live progress bar.
+- Verifies downloaded files using checksums.
+- Skips downloading files that already exist and pass verification.
+- Extracts ZIP archives automatically.
+
+You can also specify a custom storage directory:
+
+```python
+path = geofwi.download(
+    path="~/Datasets/GeoFWI",
+    progress=True,
+    extract=True,
+)
+```
+
+For large datasets, an external SSD can be used:
+
+```python
+path = geofwi.download(
+    path="/Volumes/ExternalSSD/GeoFWI",
+    progress=True,
+)
+```
+
+### 3. Load and Inspect the Dataset
+
+Inspect the downloaded dataset:
+
+```python
+import geofwi
+
+# Download the dataset if necessary
+path = geofwi.download()
+
+# Display dataset information
+geofwi.info(path)
+
+# Find available NumPy arrays
+arrays = geofwi.find_arrays(path)
+
+print("Available arrays:", arrays)
+```
+
+Load a velocity-model array:
+
+```python
+# Select an available NumPy array
+velocity = geofwi.load(arrays[0])
+
+print("Velocity array shape:", velocity.shape)
+```
+
+GeoFWI supports memory-efficient loading of large NumPy arrays,
+avoiding unnecessary memory consumption.
+
+### 4. Visualize Velocity Models
+
+Visualize representative velocity models:
+
+```python
+import geofwi
+
+# Automatically download the dataset
+path = geofwi.download()
+
+# Visualize the dataset
+geofwi.visualize(path)
+```
+
+Alternatively, load the data and visualize it using Matplotlib:
+
+```python
+import matplotlib.pyplot as plt
+import geofwi
+
+path = geofwi.download()
+arrays = geofwi.find_arrays(path)
+velocity = geofwi.load(arrays[0])
+
+# Display the first velocity model
+plt.figure(figsize=(6, 5))
+plt.imshow(velocity[0], cmap="jet", aspect="auto")
+plt.colorbar(label="Velocity")
+plt.title("GeoFWI Velocity Model")
+plt.xlabel("Horizontal grid index")
+plt.ylabel("Depth grid index")
+plt.tight_layout()
+plt.show()
+```
+
+### 5. Complete Example: Download → Load → Visualize
+
+The following example demonstrates the complete workflow:
+
+```python
+import geofwi
+
+# Step 1: Download the dataset (skips existing verified files)
+path = geofwi.download(progress=True)
+
+# Step 2: Inspect dataset information
+geofwi.info(path)
+
+# Step 3: Find and load a velocity-model array
+arrays = geofwi.find_arrays(path)
+velocity = geofwi.load(arrays[0])
+
+# Step 4: Visualize representative models
+geofwi.visualize(path)
+```
+
+### 6. Additional Download Options
+
+```python
+# List available files on Zenodo
+files = geofwi.available_files()
+
+# Download a specific file
+path = geofwi.download(filename=files[0]["name"])
+
+# Download without extracting the ZIP archive
+archive = geofwi.download(extract=False)
+
+# Force a fresh download
+path = geofwi.download(force=True)
+
+# Disable the download progress bar
+path = geofwi.download(progress=False)
+
+# Show the default data directory
+print(geofwi.data_dir())
+```
+
+For additional examples, see the
+[examples directory](https://github.com/aaspip/geofwi/tree/main/examples).
+
+For dataset details, visit the
+[GeoFWI Zenodo record](https://zenodo.org/records/24061019).
+
+
 -----------
 ## Examples
 
