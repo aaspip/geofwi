@@ -108,7 +108,7 @@ Load a velocity-model array:
 
 ```python
 # Select an available NumPy array
-velocity = geofwi.load(arrays[0])
+velocity = geofwi.load(arrays[1])
 
 print("Velocity array shape:", velocity.shape)
 ```
@@ -138,7 +138,7 @@ import geofwi
 
 path = geofwi.download()
 arrays = geofwi.find_arrays(path)
-velocity = geofwi.load(arrays[0])
+velocity = geofwi.load(arrays[1])
 
 # Display the first velocity model
 plt.figure(figsize=(6, 5))
