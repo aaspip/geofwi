@@ -195,7 +195,7 @@ print(geofwi.data_dir())
 ```
 
 For additional examples, see the
-[examples directory](https://github.com/aaspip/geofwi/tree/main/examples).
+[examples directory](https://github.com/aaspip/geofwi/tree/main/notebooks).
 
 For dataset details, visit the
 [GeoFWI Zenodo record](https://zenodo.org/records/24061019).
