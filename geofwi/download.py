@@ -403,6 +403,7 @@ def download(path=None, *, filename=None, extract=True, force=False, progress=Tr
     if extract and output.suffix.lower() == '.zip':
         destination = target_dir / output.stem
         _extract_zip(output, destination)
+        shutil.rmtree(destination / "__MACOSX", ignore_errors=True)
         return destination
     return output
 
