@@ -493,7 +493,6 @@ The above two figures can be reproduced using
 	plot_four(vels, title="Four Samples in Augmented GeoFWI", figname="Salt2Aug.png")
 
 
-
 -----------
 ## Copyright
     GEOFWI developing team, 2024-present

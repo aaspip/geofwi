@@ -30,7 +30,7 @@ def read(*names, **kwargs):
 # from numpy.distutils.core import setup 
 setup(
     name="geofwi",
-    version="0.0.0.1",
+    version="0.0.0.2",
     license='MIT License',
     description="GeoFWI: A lightweight velocity model dataset for benchmarking full waveform inversion using deep learning",
     long_description=long_description,
