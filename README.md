@@ -227,10 +227,11 @@ An example below shows a few shot gathers simulated from the velocity models on 
 
 Read the GeoFWI data and check its dimension
 
-	import numpy as np
-	sizes=np.load("data/geofwi-size-layer-fault-salt-1-10.npy")
-	GeoFWI_path='data/geofwi.npy' #suppose you put geofwi.npy in "./data/" directory
-	geofwi=np.load(GeoFWI_path)
+	import geofwi
+	path = geofwi.download()
+	arrays = geofwi.find_arrays(path)
+	sizes=geofwi.load(arrays[0]) #load geofwi-size-layer-fault-salt-1-10.npy
+	geofwi=geofwi.load(arrays[1])
 	print('geofwi.shape',geofwi.shape)
 	print('NO of samples in GeoFWI is ',geofwi.shape[0])
 	print('Each sample has a dimension of %d * %d '%(geofwi.shape[1],geofwi.shape[2]))
@@ -245,8 +246,9 @@ Read the GeoFWI data and check its dimension
 
 Get some statistics from GeoFWI
 
-	import numpy as np
-	sizes=np.load("data/geofwi-size-layer-fault-salt-1-10.npy")
+	import geofwi
+	path = geofwi.download()
+	sizes = geofwi.load(geofwi.find_arrays(path)[0])
 	print('length of sizes:',len(sizes))
 	
 	print('Two-layer folding model: %d samples'%sizes[0])
@@ -345,10 +347,10 @@ Get some statistics from GeoFWI
 
 Extract a few five-layer fault models from GeoFWI
 
-	import numpy as np
-	sizes=np.load("data/geofwi-size-layer-fault-salt-1-10.npy")
-	GeoFWI_path='data/geofwi.npy' #suppose you put geofwi.npy in "./data/" directory
-	geofwi=np.load(GeoFWI_path)
+	import geofwi
+	path = geofwi.download()
+	sizes=geofwi.load(geofwi.find_arrays(path)[0])
+	geofwi=geofwi.load(geofwi.find_arrays(path)[1])
 	
 	#first index for five-layer fault models,
 	ind=sum(sizes[0:10])+1  #refer to last example for checking the index for each type of model
