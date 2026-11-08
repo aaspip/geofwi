@@ -166,7 +166,7 @@ geofwi.info(path)
 
 # Step 3: Find and load a velocity-model array
 arrays = geofwi.find_arrays(path)
-velocity = geofwi.load(arrays[0])
+velocity = geofwi.load(arrays[1])
 
 # Step 4: Visualize representative models
 geofwi.visualize(path)
